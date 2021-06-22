@@ -1,1 +1,4 @@
-/node_modules
+# modules
+/node_modules 
+# database
+/src/database/db.sqlite
