@@ -6,7 +6,8 @@ export class CreateUserService {
   async execute({ name, email, admin }: IUserRequest) {
     const usersRepository = getCustomRepository(UsersRepository);
 
-    if (!email) throw new Error('Incorret e-mail');
+    if (!email) throw new Error('E-mail is null or empty');
+    else if (!name) throw new Error('Name is null or empty');
 
     const userAlreadyExists = await usersRepository.findOne({ email });
 
