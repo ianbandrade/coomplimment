@@ -3,7 +3,7 @@ import IUserRequest from '../interfaces/IUserRequest';
 import { UsersRepository } from '../repositories/UsersRepository';
 
 export class CreateUserService {
-  async execute({ name, email, admin }: IUserRequest) {
+  async execute({ name, email, admin, password }: IUserRequest) {
     const usersRepository = getCustomRepository(UsersRepository);
 
     if (!email) throw new Error('E-mail is null or empty');
@@ -16,6 +16,7 @@ export class CreateUserService {
     const user = usersRepository.create({
       name,
       email,
+      password,
       admin,
     });
 

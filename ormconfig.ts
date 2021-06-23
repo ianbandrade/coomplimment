@@ -17,4 +17,5 @@ module.exports = {
     migrationsDir,
     entitiesDir,
   },
+  logging: true,
 };
