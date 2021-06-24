@@ -2,3 +2,5 @@
 /node_modules 
 # database
 /src/database/db.sqlite
+# environment variables
+/.env
