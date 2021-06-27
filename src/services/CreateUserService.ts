@@ -4,7 +4,7 @@ import { UsersRepository } from '../repositories/UsersRepository';
 import { hash } from 'bcryptjs';
 
 export class CreateUserService {
-  async execute({ name, email, admin, password }: IUserRequest) {
+  async execute({ name, email, admin = false, password }: IUserRequest) {
     const usersRepository = getCustomRepository(UsersRepository);
 
     if (!email) throw new Error('E-mail is null or empty');
