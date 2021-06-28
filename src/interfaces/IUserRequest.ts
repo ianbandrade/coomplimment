@@ -4,3 +4,7 @@ export default interface IUserRequest {
   password: string;
   admin?: boolean;
 }
+
+export interface IUserAuthInfo {
+  user_id: string;
+}
