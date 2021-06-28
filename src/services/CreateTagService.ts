@@ -3,10 +3,12 @@ import ITagRequest from '../interfaces/ITagRequest';
 import { TagsRepository } from '../repositories/TagsRepository';
 
 export class CreateTagService {
-  async exceute({ name }: ITagRequest) {
+  async execute({ name }: ITagRequest) {
     const tagsRepository = getCustomRepository(TagsRepository);
 
     if (!name) throw new Error('Name is null or empty');
+
+    name = name.toUpperCase();
 
     const tagAlreadyExists = await tagsRepository.findOne({ name });
 

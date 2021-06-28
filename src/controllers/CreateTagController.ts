@@ -7,7 +7,7 @@ export class CreateTagController {
 
     const createTagService = new CreateTagService();
 
-    const user = await createTagService.exceute({
+    const user = await createTagService.execute({
       name,
     });
 

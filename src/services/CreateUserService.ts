@@ -2,6 +2,7 @@ import { getCustomRepository } from 'typeorm';
 import IUserRequest from '../interfaces/IUserRequest';
 import { UsersRepository } from '../repositories/UsersRepository';
 import { hash } from 'bcryptjs';
+import { classToPlain } from 'class-transformer';
 
 export class CreateUserService {
   async execute({ name, email, admin = false, password }: IUserRequest) {
@@ -25,6 +26,6 @@ export class CreateUserService {
 
     await usersRepository.save(user);
 
-    return user;
+    return classToPlain(user);
   }
 }
